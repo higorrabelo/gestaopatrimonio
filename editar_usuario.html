@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Patrimônio - Editar Usuários</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <nav id="menu">
+            <span><img src="Imagens/logo.png" alt=""></span>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cadastrar_usuario.html">Cadastrar Usuários</a></li>
+                <li><a href="editar_usuario.html">Editar Usuários</a></li>
+                <li><a href="">Cadastrar Itens</a></li>
+                <li><a href="">Consultar itens</a></li>
+                <li><a href="">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <section class="item2">
+
+            <form class="formulario" action="" method="post" enctype="multipart/form-data">
+                <div class="titulo">
+                    <h1>Cadastro de Usuário</h1>
+                </div>
+                <hr>
+                <label for="nome">Nome:</label>
+                <input type="text" placeholder="Digite o Nome do usuário">
+                <label for="senha">Senha:</label>
+                <input type="password" placeholder="Digite a senha do seu Usuário">
+                <label for="repetesenha">Repetir Senha:</label>
+                <input type="password" placeholder="Repita a senha do seu Usuário">
+                <label for="email">E-mail:</label>
+                <input type="email" placeholder="Digite o Nome do usuário">
+                <label for="setor">Nome:</label>
+                <select name="setor" id="setor">
+                    <option value="" selected>Selecione seu Setor</option>
+                    <option value="suporte">Suporte</option>
+                    <option value="comercial">Comercial</option>
+                    <option value="financeiro">Financeiro</option>
+                    <option value="diretoria">Diretoria</option>
+                    <option value="externo">Externo</option>
+                </select>
+
+                <button>Cadastrar</button>
+
+            </form>
+
+        </section>
+        <section class="item2">
+
+            <div class="titulo">
+                <h1>Listagem de usuários</h1>
+            </div>
+            <hr>
+
+         <table>
+             <tr>
+                 <td>Nome</td>
+                 <td>Email</td>
+                 <td>Setor</td>
+                 <td>Editar Usuário</td>
+             </tr>
+             <tr>
+                <td>Allan Lima</td>
+                <td>allima@gmail.com</td>
+                <td>Suporte</td>
+                <td><button>Editar</button></td>
+            </tr>
+            <tr>
+                <td>Amanda Maciel</td>
+                <td>amanda@gmail.com</td>
+                <td>Suporte</td>
+                <td><button>Editar</button></td>
+            </tr>
+            <tr>
+                <td>Adilson Freire</td>
+                <td>adilson@gmail.com</td>
+                <td>Suporte</td>
+                <td><button>Editar</button></td>
+            </tr>
+            <tr>
+                <td>Wagner Varlin</td>
+                <td>wagner@gmail.com</td>
+                <td>Suporte</td>
+                <td><button>Editar</button></td>
+            </tr>
+           
+         </table>
+
+        </section>
+    
+    </main>
+
+    <footer>
+        
+    </footer>
+
+
+    <script src="js/app.js"></script>
+</body>
+</html>

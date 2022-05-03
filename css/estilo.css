@@ -143,6 +143,20 @@ p{
     font-size: medium;
 }
 
+table{
+    background-color: aliceblue;
+    height: 50%;
+    width: 100%;
+    border-radius: 12px;
+}
+tr{
+    background-color: rgb(255, 255, 255);
+}
+td{
+    text-align: center;
+}
+
+
 #rodape{
 
 }

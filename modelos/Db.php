@@ -10,14 +10,4 @@ class Db{
     }
 }
 
-$conn = Db::getConnection();
-
-$sql = "select * from usuario";
-
-$st = $conn->query($sql);
-
-$rs = $st->fetchAll(PDO::FETCH_OBJ);
-
-print_r($rs);
-
 ?>

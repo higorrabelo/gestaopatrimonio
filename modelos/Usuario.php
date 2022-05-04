@@ -1,26 +1,31 @@
 <?php
-
-
 class Usuario{
 
     private $nome;
     private $senha;
     private $email;
-    private $departamento;
+    private $setor;
 
-    public function __contruct($nome,$senha,$email,$departamento){
-        $this->nome=$nome;
-        $this->senha=$senha;
-        $this->email=$email;
-        $this->departamento=$departamento;
+   
+    public function __set($atributo,$valor){
+        $this->$atributo = $valor;
     }
-
-    public function __get($valor){
-        return $this->$valor;
+    public function __get($atributo){
+        return $this->$atributo;
     }
-
-
 }
 
+/* 
+$usuario = new Usuario();
 
+$usuario->__set("nome","Higor");
+$usuario->__set("senha",md5("Higor20"));
+$usuario->__set("email","higor.rabelo@gmail.com");
+$usuario->__set("setor","SUPORTE");
+
+echo "<pre>";
+print_r($usuario);
+echo "</pre>";
+
+ */
 ?>

@@ -24,7 +24,7 @@ class UsuarioDb{
     }
     public function cadastrar($usuario){
         $conn = Db::getConnection();
-        $sql = "insert into usuario(nome,senha,email,setor) values ( nome = ? , senha = md5(?) , email = ? , setor = ? )";
+        $sql = "insert into usuario(nome,senha,email,setor) values ( ? , md5(?) , ? , ? )";
         try{
             $st = $conn->prepare($sql);
             $st->bindValue(1,$usuario->__get("nome"));

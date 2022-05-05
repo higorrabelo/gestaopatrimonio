@@ -19,12 +19,12 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="menu">
                 <ul class="navbar-nav text-white text-center">
-                    <li class="navbar-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="cadastrar_usuario.html">Cadastrar Usuários</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="editar_usuario.html">Editar Usuários</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="cadastrar_item.html">Cadastrar Itens</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="login.html">Consultar itens</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="home.php">Home</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="cadastrar_usuario.php">Cadastrar Usuários</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="editar_usuario.php">Editar Usuários</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="cadastrar_item.php">Cadastrar Itens</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="consultar_itens.php">Consultar itens</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="contato.php">Contato</a></li>
                 </ul>
             </div>
            
@@ -49,7 +49,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <button class="btn btn-warning">Entrar</button>
+                            <a href="cadastrar_usuario.html"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -69,7 +69,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <button class="btn btn-warning">Entrar</button>
+                            <a href="cadastrar_item.html"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -89,7 +89,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <button class="btn btn-warning">Entrar</button>
+                            <a href="consultar_itens.html"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -111,7 +111,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <button class="btn btn-warning">Entrar</button>
+                            <a href="consultar_itens.html"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -131,7 +131,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <button class="btn btn-warning">Entrar</button>
+                            <a href="editar_usuario.html"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -151,7 +151,7 @@
                 </div>
                 <div card="card-footer">
                     <div class="d-flex justify-content-center mb-3">
-                        <button class="btn btn-warning">Entrar</button>
+                        <a href="cadastrar_usuario.html"><button class="btn btn-warning">Entrar</button></a>
                     </div>
                 </div>
             </div> <!-- Item fim --></div>

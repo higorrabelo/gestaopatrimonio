@@ -13,7 +13,7 @@
     
         
      <div class="container" style="margin-top: 10em; width: 350px;">
-        <div class="d-flex justify-content-center mt-4">
+        <div class="d-flex justify-content-center mt-4 mb-3">
             <h2>Gestão de Patrimônio</h2>
         </div>
         <form action="controller/controller.php" method="post">

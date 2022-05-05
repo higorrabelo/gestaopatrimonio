@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Patrimônio - Cadastro Item</title>
+    <title>Gestão de Patrimônio - Editar Item</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/87d0763c50.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-warning">
-            <a class="navbar-branch"><img src="Imagens/logo.png" alt=""></a>
+            <a class="navbar-branch"><img src="imagens/logo.png" alt=""></a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
                     <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-end" id="menu">
                 <ul class="navbar-nav text-white text-center">
-                    <li class="navbar-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="cadastrar_usuario.html">Cadastrar Usuários</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="editar_usuario.html">Editar Usuários</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="cadastrar_item.html">Cadastrar Itens</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="login.html">Consultar itens</a></li>
-                    <li class="navbar-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="home.php">Home</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="cadastrar_usuario.php">Cadastrar Usuários</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="editar_usuario.php">Editar Usuários</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="cadastrar_item.php">Cadastrar Itens</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="consultar_itens.php">Consultar itens</a></li>
+                    <li class="navbar-item"><a class="nav-link" href="contato.php">Contato</a></li>
                 </ul>
             </div>
            
@@ -36,7 +36,7 @@
         
         <section class="col-sm-6 mt-2">
                 <div>
-                    <h1>Cadastrar Item</h1>
+                    <h1>Editar Item</h1>
                 </div>
                 <hr>
                 <label for="nome">Nome:</label>

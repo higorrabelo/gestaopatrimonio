@@ -20,6 +20,8 @@ class Patrimonio{
     }   
 }
 
+/* 
+
 $pat = new Patrimonio();
 
 $nome="Notebook";
@@ -34,9 +36,6 @@ $quantidade="30";
 $localizacao="BELEM";
 $aquisicao="12/07/2022";
 $id_usuario="Higor";
-
-
-
 $pat->__set("nome",$nome);
 $pat->__set("tipo",$tipo);
 $pat->__set("setor",$setor);
@@ -53,5 +52,5 @@ $pat->__set("id_usuario",$id_usuario);
 echo "<pre>";
 print_r($pat);
 echo "</pre>";
-
+ */
 ?>

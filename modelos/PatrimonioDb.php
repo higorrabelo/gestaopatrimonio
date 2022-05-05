@@ -1,7 +1,7 @@
 <?php
 
-require "./Patrimonio.php";
-require "./Db.php";
+require "Patrimonio.php";
+require "Db.php";
 
 class PatrimonioDb{
 
@@ -43,7 +43,7 @@ class PatrimonioDb{
     }
 
 }
-
+/* 
 $pat = new Patrimonio();
 
 $nome="Notebook";
@@ -73,7 +73,7 @@ $pat->__set("id_usuario",$id_usuario);
 
 $action= new PatrimonioDb();
 
-$action->cadastraPatrimonio($pat);
+$action->cadastraPatrimonio($pat); */
 
 
 ?>

@@ -27,7 +27,7 @@
                     <li class="navbar-item"><a class="nav-link" href="consultar_itens.php">Consultar itens</a></li>
                     <li class="navbar-item"><a class="nav-link" href="contato.php">Contato</a></li>
                     <?php if(isset($_SESSION['nome'])){?>
-                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair">  <?=$_SESSION['nome']?></a></li>
+                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair"> olá <?=$_SESSION['nome']?></a></li>
                     <?}?>
                 </ul>
             </div>
@@ -36,7 +36,7 @@
     </header>
     
     <main class="container">
-        <form action="" method="post" enctype="multipart/form-data"></form>
+    <form action="./controller/cadastrar_item_controller.php" method="post" enctype="multipart/form-data">
       <div class="row mt-3">
         
         <section class="col-sm-6 mt-2">
@@ -45,19 +45,19 @@
                 </div>
                 <hr>
                 <label for="nome">Nome:</label>
-                <input class="form-control" type="text" placeholder="Nome do Item">
+                <input class="form-control" name="nome" type="text" placeholder="Nome do Item" required>
                 <label for="fabricante">Fabricante:</label>
-                <input class="form-control" type="text" placeholder="Nome do Fabricante">
+                <input class="form-control" type="text" name="fabricante" placeholder="Nome do Fabricante" required>
                 <label for="fornecedor">Fornecedor</label>:</label>
-                <input class="form-control" type="text" placeholder="Nome do Fornecedor">
+                <input class="form-control" type="text" name="fornecedor" placeholder="Nome do Fornecedor" required>
                 <label for="quantidade">Quantidade:</label>
-                <input class="form-control" type="number">
+                <input class="form-control" type="number" name="quantidade" required>
                 <label for="localizacao">Localização:</label>
-                <input class="form-control" type="text" placeholder="Localização">
+                <input class="form-control" type="text" name="localizacao" placeholder="Localização" required>
                
                 <br>
                 <label for="foto">Imagem</label>
-                    <input type="file">  
+                    <input type="file" name="arquivo">  
                 
         </section>
 
@@ -87,25 +87,25 @@
             <br>
                     <div class="input-group">
                         <label for="depreciacao" class="input-group-text">Valor: </label>
-                        <input class="form-control" type="number">
+                        <input class="form-control" type="number" name="valor" >
                         <span class="input-group-text">R$</span>
                     </div>
             <br>
                     <div class="input-group">
                         <label for="depreciacao" class="input-group-text">Depreciação: </label>
-                        <input class="form-control" type="number">
+                        <input class="form-control" type="number" name="depreciacao">
                         <span class="input-group-text">%</span>
                     </div>
                     <br>
                     <label for="nome">Data de Aquisição:</label>
-                    <input class="form-control" type="date">
+                    <input class="form-control" type="date" name="data">
                     <br>
 
                      
 
         </section>
         <div class="d-flex justify-content-center mt-3 mb-3">
-            <button class="btn btn-warning">Cadastrar</button>
+            <input type="submit" class="btn btn-warning" value="Cadastrar">
         </div>
     </form>
 

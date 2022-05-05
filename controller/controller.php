@@ -4,6 +4,7 @@ require('../modelos/UsuarioDb.php');
 $msg = isset($_GET['msg']) ? $_GET['msg'] : $msg;
 
 if($msg == "logar"){
+    
     $nome = $_POST['login'];
     $senha = $_POST['senha'];
     $usuario = new Usuario();

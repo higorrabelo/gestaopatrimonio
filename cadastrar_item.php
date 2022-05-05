@@ -27,7 +27,7 @@
                     <li class="navbar-item"><a class="nav-link" href="consultar_itens.php">Consultar itens</a></li>
                     <li class="navbar-item"><a class="nav-link" href="contato.php">Contato</a></li>
                     <?php if(isset($_SESSION['nome'])){?>
-                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair"><?=$_SESSION['nome']?></a></li>
+                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair">  <?=$_SESSION['nome']?></a></li>
                     <?}?>
                 </ul>
             </div>

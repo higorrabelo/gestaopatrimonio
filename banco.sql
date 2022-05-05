@@ -12,7 +12,7 @@ create table usuario(
 );
 
 create table patrimonio(
-codigo int not null primary key auto_increment,
+id int not null primary key auto_increment,
 nome varchar(90) not null,
 tipo varchar(20) not null,
 setor varchar(30) not null,
@@ -29,6 +29,8 @@ cadastro timestamp default current_timestamp,
 id_usuario int,
 constraint fk_usuario foreign key (id_usuario) references usuario(id)
 );
+
+alter table patrimonio rename column codigo to id; 
 
 
 

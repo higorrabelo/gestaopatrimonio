@@ -1,7 +1,3 @@
-<?php
-session_start();
-session_destroy();
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,6 +28,9 @@ session_destroy();
                     </div>
                     <?php if(isset($_GET['msg']) && $_GET['msg']=="ERRO"){?>
                         <div class="text-center text-danger">Usuário não Encontrado</div>
+                    <?}?>
+                    <?php if(isset($_GET['msg']) && $_GET['msg']=="ERRO2"){?>
+                        <div class="text-center text-danger">Usuário precisa estar logado</div>
                     <?}?>
                     <a class="d-flex justify-content-center" href="">Esqueceu Senha ou Login?</a>
                     <a class="d-flex justify-content-center" href="">Cadastrar Usuário</a>

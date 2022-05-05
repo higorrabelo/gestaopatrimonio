@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php require "auth.php";?>
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +26,9 @@
                     <li class="navbar-item"><a class="nav-link" href="cadastrar_item.php">Cadastrar Itens</a></li>
                     <li class="navbar-item"><a class="nav-link" href="consultar_itens.php">Consultar itens</a></li>
                     <li class="navbar-item"><a class="nav-link" href="contato.php">Contato</a></li>
+                    <?php if(isset($_SESSION['nome'])){?>
+                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair"><?=$_SESSION['nome']?></a></li>
+                    <?}?>
                 </ul>
             </div>
            
@@ -49,7 +53,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="cadastrar_usuario.html"><button class="btn btn-warning">Entrar</button></a>
+                            <a href="cadastrar_usuario.php"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -69,7 +73,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="cadastrar_item.html"><button class="btn btn-warning">Entrar</button></a>
+                            <a href="cadastrar_item.php"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -89,7 +93,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="consultar_itens.html"><button class="btn btn-warning">Entrar</button></a>
+                            <a href="consultar_itens.php"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -111,7 +115,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="consultar_itens.html"><button class="btn btn-warning">Entrar</button></a>
+                            <a href="consultar_itens.php"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -131,7 +135,7 @@
                     </div>
                     <div card="card-footer">
                         <div class="d-flex justify-content-center mb-3">
-                            <a href="editar_usuario.html"><button class="btn btn-warning">Entrar</button></a>
+                            <a href="editar_usuario.php"><button class="btn btn-warning">Entrar</button></a>
                         </div>
                     </div>
                 </div> <!-- Item fim -->
@@ -151,7 +155,7 @@
                 </div>
                 <div card="card-footer">
                     <div class="d-flex justify-content-center mb-3">
-                        <a href="cadastrar_usuario.html"><button class="btn btn-warning">Entrar</button></a>
+                        <a href="cadastrar_usuario.php"><button class="btn btn-warning">Entrar</button></a>
                     </div>
                 </div>
             </div> <!-- Item fim --></div>
@@ -174,4 +178,4 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
-</html>
+</php>

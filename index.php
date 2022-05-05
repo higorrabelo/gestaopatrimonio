@@ -16,7 +16,7 @@
         <div class="d-flex justify-content-center mt-4 mb-3">
             <h2>Gestão de Patrimônio</h2>
         </div>
-        <form action="controller/controller.php" method="post">
+        <form action="./controller/controller.php?msg=logar" method="post">
             <div class="card text-secondary" width="400px">   
                 <div class="card-body">   
                     <label for="">Login</label><br>
@@ -26,6 +26,9 @@
                     <div class="d-flex justify-content-center mt-3">
                         <button class="btn btn-warning mb-2" type="submit">Entrar</button>    
                     </div>
+                    <?php if(isset($_GET['login']) && $_GET['login']=="ERRO"){?>
+                        <div class="text-center text-danger">Usuário não Encontrado</div>
+                    <?}?>
                     <a class="d-flex justify-content-center" href="">Esqueceu Senha ou Login?</a>
                     <a class="d-flex justify-content-center" href="">Cadastrar Usuário</a>
                 </div>  

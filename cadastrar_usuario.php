@@ -1,3 +1,4 @@
+<?php require "auth.php";?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -25,28 +26,37 @@
                     <li class="navbar-item"><a class="nav-link" href="cadastrar_item.php">Cadastrar Itens</a></li>
                     <li class="navbar-item"><a class="nav-link" href="consultar_itens.php">Consultar itens</a></li>
                     <li class="navbar-item"><a class="nav-link" href="contato.php">Contato</a></li>
+                    <?php if(isset($_SESSION['nome'])){?>
+                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair"> <?=$_SESSION['nome']?> </a></li>
+                    <?}?>
                 </ul>
             </div>
            
         </nav>
     </header>
+    
     <main class="container">
       <div class="row">
         <section class="col-sm-6">
 
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="./controller/cadastra_usuario_controller.php" method="post" enctype="multipart/form-data">
                 <div>
                     <h1>Cadastro de Usuário</h1>
                 </div>
                 <hr>
                 <label for="nome">Nome:</label>
-                <input class="form-control" type="text" placeholder="Digite o Nome do usuário">
+                <input class="form-control" name="nome" type="text" placeholder="Digite o Nome do Usuário" required>
                 <label for="senha">Senha:</label>
-                <input class="form-control" type="password" placeholder="Digite a senha do seu Usuário">
+                <input class="form-control" type="password" name="senha" placeholder="Digite a senha do seu Usuário" required>
                 <label for="repetesenha">Repetir Senha:</label>
-                <input class="form-control" type="password" placeholder="Repita a senha do seu Usuário">
+                <input class="form-control" type="password" name="repeteSenha" placeholder="Repita a senha do seu Usuário" required>
+                <?php if(isset($_GET['msg']) && $_GET['msg']=="SENHA"){?>
+                    <div class="text-danger">
+                        Senhas Diferentes
+                    </div>
+                <?}?>
                 <label for="email">E-mail:</label>
-                <input class="form-control" type="email" placeholder="Digite o Nome do usuário">
+                <input class="form-control" type="email" name="email" placeholder="Digite o Nome do usuário" required>
                 <label for="setor">Nome:</label>
                 <select class="form-select" name="setor" id="setor">
                     <option value="" selected>Selecione seu Setor</option>
@@ -56,6 +66,16 @@
                     <option value="diretoria">Diretoria</option>
                     <option value="externo">Externo</option>
                 </select>
+                <?php if(isset($_GET['msg']) && $_GET['msg']=="ERRO"){?>
+                    <div class="text-danger">
+                    Erro no Cadastro do usuário
+                    </div>
+                <?}?>
+                <?php if(isset($_GET['msg']) && $_GET['msg']=="SUCESSO"){?>
+                    <div class="text-success">
+                    Cadastro Realizado com sucesso
+                    </div>
+                <?}?>
 
                 <div class="d-flex justify-content-center mt-3">
                     <button class="btn btn-warning">Cadastrar</button>

@@ -9,8 +9,10 @@ class UsuarioDb{
 
     public function login($usuario){
         $conn = Db::getConnection();
+
+
         try{
-            $sql = "select * from usuario where nome = ? && senha= ? ";
+            $sql = "select * from usuario where nome = ? && senha= md5(?) ";
             $st = $conn->prepare($sql);
             $st->bindValue(1,$usuario->__get("nome"));
             $st->bindValue(2,$usuario->__get("senha"));
@@ -32,11 +34,7 @@ class UsuarioDb{
             $st->bindValue(3,$usuario->__get("email"));
             $st->bindValue(4,$usuario->__get("setor"));
             $st->execute();
-            echo $conn->lastInsertId();
-            echo "Inserido com sucesso";
-            echo "<pre>";
-            print_r($usuario);
-            echo "</pre>";
+;
         }
         catch(PDOException $e){
             echo "Erro: ".$e->getMessage();
@@ -65,7 +63,7 @@ if($conexao->login($usuario)){
 
 /*  Inserir usuario */
 
-$usuario = new Usuario();
+/* $usuario = new Usuario();
 $usuario->__set("nome","Allan");
 $usuario->__set("senha",md5("Allan"));
 $usuario->__set("email","allan@gmail.com");
@@ -74,6 +72,6 @@ $usuario->__set("setor","SUPORTE");
 
 $conexao = new UsuarioDb();
 
-$conexao->cadastrar($usuario);
+$conexao->cadastrar($usuario); */
 
 ?>

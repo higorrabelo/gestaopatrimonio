@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,7 +30,7 @@
                     <div class="d-flex justify-content-center mt-3">
                         <button class="btn btn-warning mb-2" type="submit">Entrar</button>    
                     </div>
-                    <?php if(isset($_GET['login']) && $_GET['login']=="ERRO"){?>
+                    <?php if(isset($_GET['msg']) && $_GET['msg']=="ERRO"){?>
                         <div class="text-center text-danger">Usuário não Encontrado</div>
                     <?}?>
                     <a class="d-flex justify-content-center" href="">Esqueceu Senha ou Login?</a>

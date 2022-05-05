@@ -1,8 +1,5 @@
 <?php
-
 require('../modelos/UsuarioDb.php');
-
-
 
 $msg = isset($_GET['msg']) ? $_GET['msg'] : $msg;
 
@@ -14,12 +11,12 @@ if($msg == "logar"){
     $usuario->__set("senha",$senha);
     $action = new UsuarioDb();
     if($action->login($usuario)){
-        header("Location: ../home.php");
         session_start();
         $_SESSION['status']="OK";
         $_SESSION['nome']=$nome;
+        header("Location: ../home.php");
     }else{
-        header("Location: ../index.php?login=ERRO");
+        header("Location: ../index.php?msg=ERRO");
         }
 }
 if($msg=='sair'){

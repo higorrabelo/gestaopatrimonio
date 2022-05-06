@@ -20,7 +20,7 @@ class PatrimonioDb{
             $st->bindValue(5,$pat->__get("fornecedor"));
             $st->bindValue(6,$pat->__get("valor"));
             $st->bindValue(7,$pat->__get("depreciacao"));
-            $st->bindValue(8,$pat->__get("imagem"));
+            $st->bindValue(8,"valor");
             $st->bindValue(9,$pat->__get("quantidade"));
             $st->bindValue(10,$pat->__get("localizacao"));
             $st->bindValue(11,$pat->__get("aquisicao"));
@@ -29,13 +29,12 @@ class PatrimonioDb{
 
             $id = $conn->lastInsertId();
             $caminho = "../imagens/fontes/".$id."/";
-
             if(!is_dir($caminho)){
                 mkdir($caminho,777,true);
-            }
-            
+            }           
             $conn->query("update patrimonio set imagem = '$caminho' where id = '$id' ");
 
+            return $caminho;
         }
         catch(PDOException $e){
             echo "Erro na inserção de Patrimonio".$e->getMessage();

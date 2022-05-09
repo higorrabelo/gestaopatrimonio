@@ -57,7 +57,7 @@
                
                 <br>
                 <label for="foto">Imagem</label>
-                    <input type="file" name="arquivo">  
+                    <input type="file" name="arquivo" required>  
                 
         </section>
 

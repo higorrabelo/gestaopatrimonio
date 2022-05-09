@@ -30,10 +30,4 @@ if($senha != $repeteSenha){
     }    
 }
 
-
-
-
-
-
-
 ?>

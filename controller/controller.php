@@ -11,8 +11,11 @@ if($msg == "logar"){
     $usuario->__set("nome",$nome);
     $usuario->__set("senha",$senha);
     $action = new UsuarioDb();
-    if($action->login($usuario)){
+    $result = $action->login($usuario);
+    
+    if($result){
         session_start();
+        $_SESSION['id']=$result->id;
         $_SESSION['status']="OK";
         $_SESSION['nome']=$nome;
         header("Location: ../home.php");

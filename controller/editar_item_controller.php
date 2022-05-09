@@ -13,6 +13,7 @@ $valor = $_POST['valor'];
 $depreciacao = $_POST['depreciacao'];
 $aquisicao = $_POST['data'];
 $id_usuario= $_SESSION['id'];
+$id = $_GET['id'];
 
 try{
   
@@ -27,11 +28,11 @@ try{
     $pat->__set("depreciacao",$depreciacao);
     $pat->__set("quantidade",$quantidade);
     $pat->__set("localizacao",$localizacao);
-    $pat->__set("aquisicao",$aquisicao);
     $pat->__set("id_usuario",$id_usuario);
 
     $action = new PatrimonioDb();
-    $caminho = $action->cadastraPatrimonio($pat);
+    $action->editarPatrimonio($id,$pat);
+    $caminho = "../imagens/fontes/".$id."/";
     move_uploaded_file($arquivo['tmp_name'],$caminho.$arquivo['name']);
     header("Location: ../home.php");
 

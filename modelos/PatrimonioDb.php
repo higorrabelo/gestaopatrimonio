@@ -5,7 +5,6 @@ require "Db.php";
 
 class PatrimonioDb{
 
-    private $conn;
 
     public function cadastraPatrimonio($pat){
         $conn = Db::getConnection();
@@ -33,46 +32,81 @@ class PatrimonioDb{
                 mkdir($caminho,777,true);
             }           
             $conn->query("update patrimonio set imagem = '$caminho' where id = '$id' ");
-
             return $caminho;
         }
         catch(PDOException $e){
             echo "Erro na inserção de Patrimonio".$e->getMessage();
         }
     }
+    public function deletarPatrimonio($id){
+
+    }
+    public function editarPatrimonio($id,$pat){
+        $conn = Db::getConnection();
+        $sql = "update patrimonio set nome = ? , tipo = ? , setor = ? , fabricante = ? , fornecedor = ? , valor = ? , depreciacao = ? , quantidade = ? , localizacao = ? , atualizacao = current_timestamp , id_usuario = ? where id = ? ";
+        try{
+            $st = $conn->prepare($sql);
+            $st->bindValue(1,$pat->__get("nome"));
+            $st->bindValue(2,$pat->__get("tipo"));
+            $st->bindValue(3,$pat->__get("setor"));
+            $st->bindValue(4,$pat->__get("fabricante"));
+            $st->bindValue(5,$pat->__get("fornecedor"));
+            $st->bindValue(6,$pat->__get("valor"));
+            $st->bindValue(7,$pat->__get("depreciacao"));
+            $st->bindValue(8,$pat->__get("quantidade"));
+            $st->bindValue(9,$pat->__get("localizacao"));
+            $st->bindValue(10,$pat->__get("id_usuario"));
+            $st->bindValue(11,$id);
+            $st->execute();
+            //echo "Atualizado com sucesso";
+        }
+        catch(PDOException $e){
+            echo "Erro na Atualização de Patrimonio".$e->getMessage();
+        }
+    }
+    public function listarPatrimonio(){
+        $conn = Db::getConnection();
+        $sql = "select * from patrimonio";
+        try{
+            $st = $conn->query($sql);
+            $rs = $st->fetchAll(PDO::FETCH_OBJ);
+            return $rs;
+        }
+        catch(PDOException $e){
+            echo "Erro em recuperar os dados".$e->getMessage();
+        }
+
+    }
+    public function localizarPatrimonio($id){
+        $conn = Db::getConnection();
+        $sql = "select * from patrimonio where id = ?";
+        try{
+            $st = $conn->prepare($sql);
+            $st->bindValue(1,$id);
+            $st->execute();
+            $busca = $st->fetch(PDO::FETCH_OBJ);
+            return $busca;
+        }
+        catch(PDOException $e){
+            echo "Erro em recuperar o Item: ".$e->getMessage();
+        }
+    }
 
 }
+
 /* 
-$pat = new Patrimonio();
+$busca = new PatrimonioDb();
 
-$nome="Notebook";
-$tipo="ELETRONICO";
-$setor="SUPORTE";
-$fabricante="LENOVO";
-$fornecedor="SOL";
-$valor=3.500;
-$depreciacao=10;
-$imagem="../Imagens/base/1/";
-$quantidade="30";
-$localizacao="BELEM";
-$aquisicao="2022-05-22";
-$id_usuario=1;
-$pat->__set("nome",$nome);
-$pat->__set("tipo",$tipo);
-$pat->__set("setor",$setor);
-$pat->__set("fabricante",$fabricante);
-$pat->__set("fornecedor",$fornecedor);
-$pat->__set("valor",$valor);
-$pat->__set("depreciacao",$depreciacao);
-$pat->__set("imagem",$imagem);
-$pat->__set("quantidade",$quantidade);
-$pat->__set("localizacao",$localizacao);
-$pat->__set("aquisicao",$aquisicao);
-$pat->__set("id_usuario",$id_usuario);
+echo "<pre>";
+print_r($busca->listarPatrimonio());
+echo "</pre>";
 
-$action= new PatrimonioDb();
+ */
 
-$action->cadastraPatrimonio($pat); */
+/* $busca = new PatrimonioDb();
 
-
+echo "<pre>";
+print_r($busca->localizarPatrimonio(13));
+echo "</pre>";
+ */
 ?>

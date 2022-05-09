@@ -1,17 +1,21 @@
-<?php require "auth.php";?>
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php require "auth.php";
+require "./modelos/PatrimonioDb.php";
+$busca = new PatrimonioDb();
+$result = $busca->localizarPatrimonio($_GET['id']);
+?>
+<!DOCTYPE php>
+<php lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Patrimônio - Editar Item</title>
+    <title>Gestão de Patrimônio</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/87d0763c50.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
+    <header>
         <nav class="navbar navbar-expand-sm navbar-dark bg-warning">
             <a class="navbar-branch"><img src="imagens/logo.png" alt=""></a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -27,85 +31,101 @@
                     <li class="navbar-item"><a class="nav-link" href="consultar_itens.php">Consultar itens</a></li>
                     <li class="navbar-item"><a class="nav-link" href="contato.php">Contato</a></li>
                     <?php if(isset($_SESSION['nome'])){?>
-                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair"> olá <?=$_SESSION['nome']?></a></li>
+                        <li class="navbar-item"><a class="nav-link fas fa-user-alt" href="./controller/controller.php?msg=sair"> Olá <?=$_SESSION['nome']?></a></li>
                     <?}?>
                 </ul>
             </div>
            
         </nav>
     </header>
+
+
     <main class="container">
-        <form action="" method="post" enctype="multipart/form-data"></form>
-      <div class="row mt-3">
-        
-        <section class="col-sm-6 mt-2">
-                <div>
-                    <h1>Editar Item</h1>
+        <form action="controller/editar_item_controller.php?id=<?=$result->id?>" method="post" enctype="multipart/form-data">
+            <div class="row mt-3">
+                                
+            
+                    <section class="col-sm-4 mt-2">
+                            <div>
+                                <h1>Imagem</h1>
+                            </div>
+                            <hr>
+                          
+                            <?php
+                            $caminho = substr($result->imagem,3);
+                            $path = scandir($caminho);                          
+                            ?>
+                            <img class="img-fluid" width="300px" src="<?=$caminho.$path[2]?>" alt="">
+                          
+                    </section>
+
+                    <section class="col-sm-4 mt-2">
+                            <div>
+                                <h1>Editar Item</h1>
+                            </div>
+                            <hr>
+                            <label for="nome">Nome:</label>
+                            <input class="form-control" type="text" name="nome" value="<?=$result->nome?>">
+                            <label for="fabricante">Fabricante:</label>
+                            <input class="form-control" type="text" name="fabricante" value="<?=$result->fabricante?>">
+                            <label for="fornecedor">Fornecedor</label>:</label>
+                            <input class="form-control" type="text" name="fornecedor" value="<?=$result->fornecedor?>">
+                            <label for="quantidade">Quantidade:</label>
+                            <input class="form-control" type="number" name="quantidade" value="<?=$result->quantidade?>">
+                            <label for="localizacao">Localização:</label>
+                            <input class="form-control" type="text" name="localizacao" value="<?=$result->localizacao?>">
+                        
+                            <br>
+                            <label for="foto">Imagem</label>
+                                <input type="file" name="arquivo" required>  
+                            
+                    </section>
+
+                      <section class="col-sm-4 mt-2">
+                        <div>
+                            <h1>Especificações</h1>
+                        </div>
+                        <hr>
+                        <br>
+                        <select class="form-select" name="tipo" id="tipo">
+                            <option value="<?=$result->tipo?>" selected><?=$result->tipo?></option>
+                            <option value="ELETRONICO">ELETRONICOS</option>
+                            <option value="DIVERSOS">DIVERSOS</option>
+                            <option value="AUTOMOVEIS">AUTOMÓVEIS</option>
+                            <option value="MOVEIS">MÓVEIS</option>
+                            <option value="MATERIAL">MATERIAL</option>
+                        </select>
+                        <br>
+                        <select class="form-select" name="setor" id="setor" value="<?=$result->setor?>">
+                            <option value="<?=$result->setor?>" selected><?=$result->setor?></option>
+                            <option value="suporte">Suporte</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="financeiro">Financeiro</option>
+                            <option value="diretoria">Diretoria</option>
+                            <option value="externo">Externo</option>
+                        </select>
+                        <br>
+                                <div class="input-group">
+                                    <label for="depreciacao" class="input-group-text">Valor: </label>
+                                    <input class="form-control" type="number" name="valor" value="<?=$result->valor?>">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                        <br>
+                                <div class="input-group">
+                                    <label for="depreciacao" class="input-group-text">Depreciação: </label>
+                                    <input class="form-control" type="number" name="depreciacao" value="<?=$result->depreciacao?>">
+                                    <span class="input-group-text">%</span>
+                                </div>
+                                <br>
+                                <label for="nome">Data de Aquisição:</label>
+                                <input class="form-control" type="date" name="data" value="<?=$result->aquisicao?>">
+                                <br>                                
+                    </section>
+                   
+                <div class="d-flex justify-content-center mt-3 mb-3">
+                    <input class="btn btn-warning" type="submit" value="Editar">
                 </div>
-                <hr>
-                <label for="nome">Nome:</label>
-                <input class="form-control" type="text" placeholder="Nome do Item">
-                <label for="fabricante">Fabricante:</label>
-                <input class="form-control" type="text" placeholder="Nome do Fabricante">
-                <label for="fornecedor">Fornecedor</label>:</label>
-                <input class="form-control" type="text" placeholder="Nome do Fornecedor">
-                <label for="quantidade">Quantidade:</label>
-                <input class="form-control" type="number">
-                <label for="localizacao">Localização:</label>
-                <input class="form-control" type="text" placeholder="Localização">
-               
-                <br>
-                <label for="foto">Imagem</label>
-                    <input type="file">  
-                
-        </section>
-
-        <section class="col-sm-6 mt-2">
-            <div>
-                <h1>Especificações</h1>
             </div>
-            <hr>
-            <br>
-            <select class="form-select" name="tipo" id="tipo">
-                <option value="" selected>Tipo do Item</option>
-                <option value="ELETRONICO">ELETRONICOS</option>
-                <option value="DIVERSOS">DIVERSOS</option>
-                <option value="AUTOMOVEIS">AUTOMÓVEIS</option>
-                <option value="MOVEIS">MÓVEIS</option>
-                <option value="MATERIAL">MATERIAL</option>
-            </select>
-            <br>
-            <select class="form-select" name="setor" id="setor">
-                <option value="" selected>Selecione o Setor do Item</option>
-                <option value="suporte">Suporte</option>
-                <option value="comercial">Comercial</option>
-                <option value="financeiro">Financeiro</option>
-                <option value="diretoria">Diretoria</option>
-                <option value="externo">Externo</option>
-            </select>
-            <br>
-                    <div class="input-group">
-                        <label for="depreciacao" class="input-group-text">Valor: </label>
-                        <input class="form-control" type="number">
-                        <span class="input-group-text">R$</span>
-                    </div>
-            <br>
-                    <div class="input-group">
-                        <label for="depreciacao" class="input-group-text">Depreciação: </label>
-                        <input class="form-control" type="number">
-                        <span class="input-group-text">%</span>
-                    </div>
-                    <br>
-                    <label for="nome">Data de Aquisição:</label>
-                    <input class="form-control" type="date">
-                    <br>
-
-                     
-
-        </section>
-        <div class="d-flex justify-content-center mt-3 mb-3">
-            <button class="btn btn-warning">Cadastrar</button>
-        </div>
     </form>
 
     </main>

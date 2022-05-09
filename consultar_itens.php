@@ -1,4 +1,8 @@
-<?php require "auth.php";?>
+<?php require "auth.php";
+require "./modelos/PatrimonioDb.php";
+$busca = new PatrimonioDb();
+$itens = $busca->listarPatrimonio();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -65,42 +69,18 @@
                         <th scope="col">Editar</th>
                     </thead>
                     <tbody>
+                        <?foreach($itens as $item){?>
                         <tr>
-                            <td>1</td>
-                            <td>Notebook</td>
-                            <td>Eletrônico</td>
-                            <td>Suporte</td>
-                            <td>5</td>
-                            <td>Suporte</td>
-                            <td><a href="editar_item.html"><button class="btn btn-primary">Editar</button></a></td>
+                            <td><?=$item->id?></td>
+                            <td><?=$item->nome?></td>
+                            <td><?=$item->tipo?></td>
+                            <td><?=$item->setor?></td>
+                            <td><?=$item->quantidade?></td>
+                            <td><?=$item->localizacao?></td>
+                            <td><a href="editar_item.php?id=<?=$item->id?>"><button class="btn btn-primary">Editar</button></a></td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Notebook</td>
-                            <td>Eletrônico</td>
-                            <td>Suporte</td>
-                            <td>5</td>
-                            <td>Suporte</td>
-                            <td><a href="editar_item.html"><button class="btn btn-primary">Editar</button></a></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Notebook</td>
-                            <td>Eletrônico</td>
-                            <td>Suporte</td>
-                            <td>5</td>
-                            <td>Suporte</td>
-                            <td><a href="editar_item.html"><button class="btn btn-primary">Editar</button></a></td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Notebook</td>
-                            <td>Eletrônico</td>
-                            <td>Suporte</td>
-                            <td>5</td>
-                            <td>Suporte</td>
-                            <td><a href="editar_item.html"><button class="btn btn-primary">Editar</button></a></td>
-                        </tr>
+                        <?}?>
+                        
                     </tbody>
                 </table>
                </div>

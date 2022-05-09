@@ -77,7 +77,7 @@ $result = $busca->localizarPatrimonio($_GET['id']);
                         
                             <br>
                             <label for="foto">Imagem</label>
-                                <input type="file" name="arquivo" required>  
+                                <input type="file" name="arquivo">  
                             
                     </section>
 
